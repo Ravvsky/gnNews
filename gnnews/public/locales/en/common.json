@@ -4,6 +4,7 @@
   "readMore": "Read more on",
   "backtoHomePage": "Back to home page",
   "latestNews": "latest news",
-  "allArticles": "All Articles"
-
+  "allArticles": "All Articles",
+  "metaDescriptionIndex": "News from around the world: Get the latest breaking news and top stories from around the globe.",
+  "metaDescriptionSlug": "News from {country}: Get the latest breaking news and top stories from {country}."
 }
