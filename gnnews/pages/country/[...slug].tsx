@@ -33,6 +33,13 @@ export const getServerSideProps = async ({
   const slug = query.slug[0];
   const res = await fetch(`${apiUrl}${slug}&apiKey=${apiKey}`);
   const articles = await res.json().then((data) => data.articles);
+
+  if (articles.length === 0) {
+    return {
+      notFound: true,
+    };
+  }
+
   return {
     props: {
       ...(await serverSideTranslations(locale, ["common", "footer"])),
