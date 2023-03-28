@@ -28,7 +28,9 @@ const Footer = () => {
   return (
     <footer className="bg-lime-300 min-h-[20rem] flex">
       <Container className="flex justify-between items-center text-black w-full">
-        <div>Ilosć artykułów na stronie głównej: {`${visibleArticles}`}</div>
+        <div>
+          {t("articlesOnHomePage")} {`${visibleArticles}`}
+        </div>
 
         <div>{`${t("currentTime")} ${time}`}</div>
       </Container>
