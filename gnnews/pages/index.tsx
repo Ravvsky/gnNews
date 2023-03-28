@@ -3,10 +3,18 @@ import Feed, { Article } from "@/components/Feed/Feed";
 import Footer from "@/components/Footer/Footer";
 import Header from "@/components/Header/Header";
 import SideMenu from "@/components/SideMenu/SideMenu";
+import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import Head from "next/head";
 export default function Home(props: { articles: Article[] }) {
+  const { t } = useTranslation();
+
   return (
     <>
+      <Head>
+        <title>{t("allArticles")}</title>
+        <meta property="og:title" content={`${t("allArticles")}`} />
+      </Head>
       <div className="bg-neutral-100  text-white flex flex-col bg justify-between">
         <Header />
         <Container className="my-[2rem] flex gap-[2rem]">

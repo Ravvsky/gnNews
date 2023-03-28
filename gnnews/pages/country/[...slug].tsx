@@ -3,16 +3,37 @@ import Feed, { Article } from "@/components/Feed/Feed";
 import Footer from "@/components/Footer/Footer";
 import Header from "@/components/Header/Header";
 import SideMenu from "@/components/SideMenu/SideMenu";
+import { useTranslation } from "next-i18next";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import Head from "next/head";
 
-export default function Home(props: { articles: Article[] }) {
+export default function Home(props: {
+  articles: Article[];
+  slug: string;
+  locale: string;
+}) {
+  const { articles, slug, locale } = props;
+  const countryName = new Intl.DisplayNames([locale], {
+    type: "region",
+  }).of(slug.toUpperCase());
+
+  const { t } = useTranslation();
   return (
     <>
+      <Head>
+        <title>
+          {countryName} {t("latestNews")}
+        </title>
+        <meta
+          property="og:title"
+          content={`${countryName} ${t("latestNews")}`}
+        />
+      </Head>
       <div className="bg-neutral-100  text-white flex flex-col bg justify-between">
         <Header />
         <Container className="my-[2rem] flex gap-[2rem]">
           <SideMenu />
-          <Feed articles={props.articles} />
+          <Feed articles={articles} />
         </Container>
         <Footer />
       </div>
@@ -44,6 +65,8 @@ export const getServerSideProps = async ({
     props: {
       ...(await serverSideTranslations(locale, ["common", "footer"])),
       articles,
+      slug,
+      locale,
     },
   };
 };
