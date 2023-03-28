@@ -28,6 +28,10 @@ export default function Home(props: {
           property="og:title"
           content={`${countryName} ${t("latestNews")}`}
         />
+        <meta
+          property="og:description"
+          content={`${t("metaDescriptionSlug", { countryName })}`}
+        />
       </Head>
       <div className="bg-neutral-100  text-white flex flex-col bg justify-between">
         <Header />

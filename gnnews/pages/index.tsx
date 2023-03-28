@@ -14,6 +14,10 @@ export default function Home(props: { articles: Article[] }) {
       <Head>
         <title>{t("allArticles")}</title>
         <meta property="og:title" content={`${t("allArticles")}`} />
+        <meta
+          property="og:description"
+          content={`${t("metaDescriptionIndex")}`}
+        />
       </Head>
       <div className="bg-neutral-100  text-white flex flex-col bg justify-between">
         <Header />
