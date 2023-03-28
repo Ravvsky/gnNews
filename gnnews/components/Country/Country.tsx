@@ -9,7 +9,7 @@ const Country = (props: {
   const lowercaseCountryCode = countryCode.toLowerCase();
 
   return (
-    <Link href={`country/${lowercaseCountryCode}`}>
+    <Link href={`/country/${lowercaseCountryCode}`}>
       <div className="w-fit">
         {flag} {name}
       </div>
