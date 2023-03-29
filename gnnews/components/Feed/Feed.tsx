@@ -122,7 +122,7 @@ const Feed = (props: { articles: Article[] }) => {
   const listView = (
     <section
       data-testid="feed-list"
-      className={`flex flex-col w-full ${isLoading && "gap-[2rem]"}`}
+      className={`flex flex-col w-full gap-[2rem]`}
       ref={listref}
     >
       {isLoading
