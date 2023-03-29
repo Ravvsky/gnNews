@@ -35,7 +35,7 @@ export default function Home(props: {
       </Head>
       <div className="bg-neutral-100  text-white flex flex-col bg justify-between">
         <Header />
-        <Container className="my-[2rem] flex gap-[2rem]">
+        <Container className="my-[2rem] flex gap-[2rem] pt-[8.5rem]">
           <SideMenu />
           <Feed articles={articles} />
         </Container>
