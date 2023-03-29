@@ -6,6 +6,7 @@ import { useTranslation } from "next-i18next";
 
 interface ArticleModalProps {
   title: string;
+  author: string;
   imageUrl?: string;
   description: string;
   content: string;
@@ -17,6 +18,7 @@ interface ArticleModalProps {
 const ArticleModal = (props: ArticleModalProps) => {
   const {
     title,
+    author,
     imageUrl,
     description,
     content,
@@ -51,8 +53,21 @@ const ArticleModal = (props: ArticleModalProps) => {
       <div>{description}</div>
 
       <div>{content}</div>
-      <div className="pt-[2rem]">
-        {t("readMore")} <Link href={sourceUrl}>{sourceName}</Link>
+      <div
+        data-testid="article-modal"
+        className="pt-[2rem] flex justify-between"
+      >
+        <div>
+          {t("readMore")}{" "}
+          <Link
+            href={sourceUrl}
+            className="hover:text-green-900 transition-colors ease-in duration-75"
+          >
+            {sourceName}
+          </Link>
+        </div>
+        {t("authors")}
+        {author}
       </div>
     </Modal>
   );
