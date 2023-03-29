@@ -1,5 +1,5 @@
 import { useRouter } from "next/router";
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useState } from "react";
 import { useTranslation } from "next-i18next";
 
 const LanguageSwitcher: React.FC<{
@@ -61,8 +61,11 @@ const LanguageSwitcher: React.FC<{
 
   return (
     <select
+      data-testid="language-switcher"
+      aria-label="language-select"
       value={value.value}
       onChange={(event) => languageChanged(event.target.selectedOptions[0])}
+      className="pr-[2rem] rounded-[1rem] focus-within:outline-none"
     >
       {locales.map((locale) => {
         const label = capitalize(languageNames[locale] ?? locale);
