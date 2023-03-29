@@ -10,8 +10,8 @@ const Country = (props: {
 
   return (
     <Link href={`/country/${lowercaseCountryCode}`}>
-      <div className="w-fit">
-        {flag} {name}
+      <div className="w-fit py-[0.5rem] font-medium hover:text-neutral-600 transition-colors ease-in duration-75">
+        {flag} <span className="pl-[0.5rem]">{name}</span>
       </div>
     </Link>
   );
