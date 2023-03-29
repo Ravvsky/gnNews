@@ -26,8 +26,8 @@ const Footer = () => {
     (state: { visibleArticles: number }) => state.visibleArticles
   );
   return (
-    <footer className="bg-lime-300 min-h-[20rem] flex">
-      <Container className="flex justify-between items-center text-black w-full">
+    <footer className="bg-green-900 min-h-[20rem] flex" data-testid="footer">
+      <Container className="flex justify-between items-center w-full text-white">
         <div>
           {t("articlesOnHomePage")} {`${visibleArticles}`}
         </div>
