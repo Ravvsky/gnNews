@@ -51,35 +51,37 @@ const Header = ({ onClick = () => {} }) => {
             >
               <h2 className="text-[2rem] font-medium">Hard things</h2>
               <p className="py-[2rem]">
-                Hardes thing for me was a whole testing process. I realativly
-                fast understand simples principles of testing like checking if
-                something just exists on screen but things got complicated when
-                I had to use mocks to simulate behavior of different functions.
+                Hardest things for me were the whole testing process. I
+                relatively quickly understood simple principles of testing like
+                checking if something just exists on the screen, but things got
+                complicated when I had to use mocks to simulate the behavior of
+                different functions.
               </p>
               <p className="pb-[2rem]">
-                Hardest thing to mock was mocking things connected with
-                translation package as i couldn&apos;t find any documentation
-                about mocking nexti18next
+                The hardest things to mock were things connected with the
+                translation package, as I couldn&apos;t find any documentation
+                about mocking Nexti18next.
               </p>
               <p className="pb-[2rem]">
-                I had some strugle with Article component. I wasn&apos;t sure
-                how I should organize my code to make it easy to read but also
-                to not making many of child components. In my opinion actual
-                version is readable but I&apos;m sure there is still space for
-                improvement.
+                I had some struggle with the Article component. I wasn&apos;t
+                sure how I should organize my code to make it easy to read, but
+                also to not make too many child components. In my opinion, the
+                actual version is readable, but I&apos;m sure there is still
+                room for improvement.
               </p>
               <h2 className="text-[2rem] font-medium">Enjoyble things</h2>
               <p className="py-[2rem]">
-                I really enjoyed translation process. I got opportunity to learn
-                a new package. I got some problems with configuration but when I
-                finally figured it out it was satisfing to add next strings to
-                see how my app is getting more interactive.
+                Enjoyable things were the translation process. I got the
+                opportunity to learn a new package. I had some problems with
+                configuration, but when I finally figured it out, it was
+                satisfying to add new strings to see how my app is getting more
+                interactive.
               </p>
               <p className="">
-                I also liked a working with Redux. I used to use Redux earlier
-                but there were a few things I had to remember. Most enjoyable
-                time was a begining of development because no matter what I did
-                it started to look better.
+                I also liked working with Redux. I used to use Redux earlier,
+                but there were a few things I had to remember. The most
+                enjoyable time was the beginning of development because no
+                matter what I did, it started to look better.
               </p>
             </Modal>
           )}
