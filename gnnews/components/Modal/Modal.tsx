@@ -32,8 +32,9 @@ const Modal = (props: {
     return () => window.removeEventListener("click", backDropHandler);
   }, [backDropHandler]);
 
-  const handleCloseClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault();
+  const handleCloseClick = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.stopPropagation();
+
     onClose();
   };
   const modalContent = (
@@ -41,15 +42,20 @@ const Modal = (props: {
       data-testid="modal"
       className="fixed top-0 left-0 w-full h-full flex justify-center bg-[rgba(0,0,0,0.5)] "
     >
-      <div className="w-[50%] h-min" ref={modalWrapperRef}>
+      <div
+        className="w-full mx-[2rem] xl:w-[75%] 2xl:w-[50%] h-min"
+        ref={modalWrapperRef}
+      >
         <div className="bg-white h-full w-full  overflow-auto relative top-[5rem] p-[2rem] rounded-[1rem]">
           <div className="flex justify-end text-3xl">
-            <a href="#" onClick={handleCloseClick}>
+            <button onClick={handleCloseClick} data-testid="modal-close-button">
               x
-            </a>
+            </button>
           </div>
           {title && <div className="text-[2rem] font-medium">{title}</div>}
-          <div className="py-[1rem] h-full">{children}</div>
+          <div className="py-[1rem] h-full" data-testid="modal-content">
+            {children}
+          </div>
         </div>
       </div>
     </div>
