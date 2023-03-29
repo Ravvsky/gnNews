@@ -1,13 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import placeholder from "../../assets/images/article_placeholder.png";
 import formatDateString from "@/utils/formatDateString";
 import ArticleModal from "../ArticleModal/ArticleModal";
 import { useTranslation } from "next-i18next";
+import { useSelector } from "react-redux";
 
-interface ArticleProps {
+export interface ArticleProps {
   variant: "list" | "card";
+  author: string;
   imageUrl: string;
   title: string;
   description: string;
@@ -18,6 +20,7 @@ interface ArticleProps {
 }
 const Article = ({
   variant,
+  author,
   imageUrl,
   title,
   description,
@@ -27,6 +30,7 @@ const Article = ({
   publishedAt,
 }: ArticleProps) => {
   const { t } = useTranslation("common");
+  const view = useSelector((state: { view: string }) => state.view);
 
   const formattedDate = formatDateString(publishedAt);
   const [isModalShown, setIsModalShown] = useState(false);
@@ -34,10 +38,15 @@ const Article = ({
   const imageErrorHandler = () => {
     setHasError(true);
   };
+  useEffect(() => {
+    setHasError(false);
+  }, [variant, view]);
+
   const renderModal = () => {
     return (
       <ArticleModal
         title={title}
+        author={author}
         imageUrl={imageUrl}
         description={description}
         content={content}
@@ -59,7 +68,7 @@ const Article = ({
               setIsModalShown(true);
             }}
             data-testid="article-list-item"
-            className={`text-black flex flex-col p-[0.7rem] gap-[1rem] justify-between rounded-[1.4rem]  hover:cursor-pointer shadow-[rgba(99,99,99,0.2)_0px_2px_8px_0px]`}
+            className={`text-black bg-white flex flex-col p-[0.7rem] gap-[1rem] justify-between rounded-[1.4rem]  hover:cursor-pointer shadow-[rgba(99,99,99,0.2)_0px_2px_8px_0px]`}
           >
             <span>{title}</span>
             <div className="flex justify-between">
@@ -74,7 +83,8 @@ const Article = ({
       case "card":
         return (
           <div
-            className="text-black flex flex-col p-[0.7rem] h-full rounded-[1.4rem] hover:cursor-pointer shadow-[rgba(99,99,99,0.2)_0px_2px_8px_0px] group"
+            data-testid="article-card"
+            className="text-black bg-white flex flex-col p-[0.7rem] h-full rounded-[1.4rem] hover:cursor-pointer shadow-[rgba(99,99,99,0.2)_0px_2px_8px_0px] group"
             onClick={() => {
               setIsModalShown(true);
             }}
