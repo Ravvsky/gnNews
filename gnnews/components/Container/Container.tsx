@@ -19,6 +19,7 @@ const Container = (props: {
 }) => {
   return (
     <div
+      data-testid="container"
       className={`${props.className} mx-[2rem] sm:mx-[5rem] md:mx-[7rem] lg:mx-[10rem] xl:mx-[12rem] 2xl:mx-[22rem]`}
     >
       {props.children}
