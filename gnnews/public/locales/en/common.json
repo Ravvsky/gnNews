@@ -6,5 +6,6 @@
   "latestNews": "latest news",
   "allArticles": "All Articles",
   "metaDescriptionIndex": "News from around the world: Get the latest breaking news and top stories from around the globe.",
-  "metaDescriptionSlug": "News from {country}: Get the latest breaking news and top stories from {country}."
+  "metaDescriptionSlug": "News from {country}: Get the latest breaking news and top stories from {country}.",
+  "authors": "Written by: "
 }
