@@ -9,7 +9,6 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 const Page404 = () => {
   const { t } = useTranslation("common");
 
-  console.log(t("readMore"));
   return (
     <div className="bg-neutral-100 h-screen text-white flex flex-col bg justify-between">
       <Header />
