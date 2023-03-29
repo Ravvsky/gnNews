@@ -63,6 +63,11 @@ const Feed = (props: { articles: Article[] }) => {
           articleListItems[i] as HTMLElement
         ).style.height = `${tallestArticleListItem}px`;
       }
+      if (view !== "dashboard") {
+        for (let i = 0; i < articleListItems.length; i++) {
+          (articleListItems[i] as HTMLElement).style.height = `auto`;
+        }
+      }
     }
   }, [tallestArticleListItem, view]);
 
@@ -71,6 +76,7 @@ const Feed = (props: { articles: Article[] }) => {
       <Article
         key={index}
         variant="card"
+        author={article.author}
         title={article.title}
         imageUrl={article.urlToImage}
         description={article.description}
@@ -86,6 +92,7 @@ const Feed = (props: { articles: Article[] }) => {
       <Article
         key={index}
         variant="list"
+        author={article.author}
         title={article.title}
         content={article.content}
         sourceName={article.source.name}
@@ -98,7 +105,10 @@ const Feed = (props: { articles: Article[] }) => {
   });
 
   const cardView = (
-    <section className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 grid-auto-rows gap-[1rem] w-full content-baseline">
+    <section
+      data-testid="feed-card"
+      className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 grid-auto-rows gap-[1rem] w-full content-baseline"
+    >
       {isLoading
         ? Array.from({ length: 9 }).map((_, index) => (
             <div key={index}>
@@ -111,6 +121,7 @@ const Feed = (props: { articles: Article[] }) => {
   );
   const listView = (
     <section
+      data-testid="feed-list"
       className={`flex flex-col w-full ${isLoading && "gap-[2rem]"}`}
       ref={listref}
     >
