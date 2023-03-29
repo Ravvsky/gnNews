@@ -10,8 +10,14 @@ const ViewSwitcher = () => {
   };
 
   return (
-    <button onClick={switchHandler} className="flex items-center">
-      <span className="material-icons">{icon}</span>
+    <button
+      onClick={switchHandler}
+      className="flex items-center"
+      data-testid="view-switcher"
+    >
+      <span className="material-icons hover:text-green-900 transition-colors ease-in duration-75">
+        {icon}
+      </span>
     </button>
   );
 };
